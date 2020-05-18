@@ -11,6 +11,14 @@ dataset <- read.csv("./youtuber.csv",row.names=1)
 ### datasetがどのようなものか確認
 dataset
 
+### データの正規化を行うか決定する
+is_scale <- T #T=正規化を行う; F=正規化を行わない
+### is_scale=Tならばデータの正規化を行う
+if(is_scale==T) dataset <- scale(dataset)
+
+### datasetの確認
+head(dataset)
+
 ### データ間の距離を定義する。(以下の3つから任意の距離を選択する)
 data_dist_method <- "euclidean"     #ユークリッド距離
 data_dist_method <- "manhattan"     #マンハッタン距離
@@ -27,20 +35,11 @@ cluster_dist_method <- "average"   #群平均法
 cluster_dist_method <- "single"    #最小距離法
 cluster_dist_method <- "complete"  #最大距離法
 
-### データの正規化を行うか決定する
-is_scale <- T #T=正規化を行う; F=正規化を行わない
-### is_scale=Tならばデータの正規化を行う
-if(is_scale==T) dataset <- scale(dataset)
-
-### datasetの確認
-head(dataset)
-
 ### 距離行列からcluster_dist_methodで定義したクラスター距離定義に基づいてクラスター分析を行う
 cl_result <- hclust(distance_matrix, method=cluster_dist_method)
 
 ### クラスター分析結果の系統樹を出力する
 plot(cl_result, hang=-1, main=sprintf("Cluster Dendrogram (DataDist:%s,ClusterDist:%s)",data_dist_method,cluster_dist_method))
-
 
 ### 出力結果の保存(作業ディレクトリに保存されるように設定)
 pdf(sprintf("./cl_scale_%s_dtdis_%s_cldis_%s.pdf",is_scale,data_dist_method,cluster_dist_method), paper="a4r", width=10, height=8)
