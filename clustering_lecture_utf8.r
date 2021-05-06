@@ -7,7 +7,7 @@
 ### 注意：ダウンロードしたファイルはmacOSではデフォルトで ~/Downloads 以下に保存される．
 ### 1列目のデータを行名としてデータを読み込む
 setwd("/cloud/project/")
-dataset <- read.csv("./youtuber.csv",row.names=1)
+dataset <- read.csv("./animals.csv",row.names=1)
 
 ### datasetがどのようなものか確認
 dataset
@@ -17,8 +17,8 @@ is_scale <- T #T=正規化を行う; F=正規化を行わない
 ### is_scale=Tならばデータの正規化を行う
 if(is_scale==T) dataset <- scale(dataset)
 
-### datasetの確認
-head(dataset)
+### 再度datasetの確認
+dataset
 
 ### データ間の距離を定義する。(以下の3つから任意の距離を選択する)
 data_dist_method <- "euclidean"     #ユークリッド距離
@@ -29,7 +29,7 @@ data_dist_method <- "maximum"       #最大距離
 distance_matrix <- dist(dataset, method=data_dist_method)
 
 ### 距離行列の確認
-as.matrix(distance_matrix)[1:6,1:6]
+as.matrix(distance_matrix)[1:7,1:7]
 
 ### クラスター間の距離の計算方法を決める。(以下の3つから任意の距離を選択する)
 cluster_dist_method <- "average"   #群平均法
