@@ -6,6 +6,7 @@
 ### 同じディレクトリ内に保存しているCSVファイル形式のデータセットを読み込む.
 ### 注意：ダウンロードしたファイルはmacOSではデフォルトで ~/Downloads 以下に保存される．
 ### 1列目のデータを行名としてデータを読み込む
+setwd("/cloud/project/")
 dataset <- read.csv("./youtuber.csv",row.names=1)
 
 ### datasetがどのようなものか確認
