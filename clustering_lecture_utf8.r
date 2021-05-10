@@ -37,6 +37,9 @@ cl_result <- hclust(distance_matrix, method=cluster_dist_method)
 ### クラスター分析結果の系統樹を出力する
 plot(cl_result, hang=-1, main=sprintf("Cluster Dendrogram (DataDist:%s,ClusterDist:%s)",data_dist_method,cluster_dist_method))
 
+
+
+
 ### 出力結果の保存(作業ディレクトリに保存されるように設定)
 pdf(sprintf("./cl_scale_%s_dtdis_%s_cldis_%s.pdf",is_scale,data_dist_method,cluster_dist_method), paper="a4r", width=10, height=8)
 plot(cl_result, hang=-1, main=sprintf("Cluster Dendrogram (DataDist:%s,ClusterDist:%s)",data_dist_method,cluster_dist_method))
