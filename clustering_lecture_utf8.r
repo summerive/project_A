@@ -1,16 +1,11 @@
-### clustering example code for lecture
-
-#### 階層的クラスター分析サンプルコード
-### Rプログラミングでわからないことは大概Google先生で[R 日本語 pdf plot]みたいなノリで調べれば分かる。
-
 ### 同じディレクトリ内に保存しているCSVファイル形式のデータセットを読み込む.
 ### 注意：ダウンロードしたファイルはmacOSではデフォルトで ~/Downloads 以下に保存される．
 ### 1列目のデータを行名としてデータを読み込む
-setwd("/cloud/project/")
+setwd("/cloud/project/")#作業ディレクトリの設定
 dataset <- read.csv("./animals.csv",row.names=1)
 
 ### datasetがどのようなものか確認
-dataset
+print(dataset)
 
 ### データの正規化を行うか決定する
 is_scale <- T #T=正規化を行う; F=正規化を行わない
@@ -18,7 +13,7 @@ is_scale <- T #T=正規化を行う; F=正規化を行わない
 if(is_scale==T) dataset <- scale(dataset)
 
 ### 再度datasetの確認
-dataset
+print(dataset)
 
 ### データ間の距離を定義する。(以下の3つから任意の距離を選択する)
 data_dist_method <- "euclidean"     #ユークリッド距離
@@ -29,7 +24,7 @@ data_dist_method <- "euclidean"     #ユークリッド距離
 distance_matrix <- dist(dataset, method=data_dist_method)
 
 ### 距離行列の確認
-as.matrix(distance_matrix)[1:7,1:7]
+print(as.matrix(distance_matrix))
 
 ### クラスター間の距離の計算方法を決める。(以下の3つから任意の距離を選択する)
 cluster_dist_method <- "average"   #群平均法
