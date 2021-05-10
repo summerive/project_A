@@ -5,7 +5,7 @@ setwd("/cloud/project/")
 dataset <- read.csv("./animals.csv",row.names=1)
 
 ### datasetがどのようなものか確認
-dataset
+print(dataset)
 
 
 ### データ間の距離を定義する。(以下の3つから任意の距離を選択する)
@@ -17,4 +17,4 @@ data_dist_method <- "euclidean"     #ユークリッド距離
 distance_matrix <- dist(dataset, method=data_dist_method)
 
 ### 距離行列の確認
-as.matrix(distance_matrix)[1:7,1:7]
+print(as.matrix(distance_matrix))
