@@ -8,7 +8,7 @@ dataset <- read.csv("./animals.csv",row.names=1)
 print(dataset)
 
 ### データの正規化を行うか決定する
-is_scale <- T #T=正規化を行う; F=正規化を行わない
+is_scale <- F #T=正規化を行う; F=正規化を行わない
 ### is_scale=Tならばデータの正規化を行う
 if(is_scale==T) dataset <- scale(dataset)
 
