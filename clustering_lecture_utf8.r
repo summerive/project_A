@@ -28,8 +28,9 @@ print(as.matrix(distance_matrix))
 
 ### クラスター間の距離の計算方法を決める。(以下の3つから任意の距離を選択する)
 cluster_dist_method <- "single"    #最小距離法
-#cluster_dist_method <- "average"   #群平均法
 #cluster_dist_method <- "complete"  #最大距離法
+#cluster_dist_method <- "average"   #群平均法
+
 
 ### 距離行列からcluster_dist_methodで定義したクラスター距離定義に基づいてクラスター分析を行う
 cl_result <- hclust(distance_matrix, method=cluster_dist_method)
