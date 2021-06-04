@@ -1,7 +1,7 @@
 ### 同じディレクトリ内に保存しているCSVファイル形式のデータセットを読み込む.
 ### 注意：ダウンロードしたファイルはmacOSではデフォルトで ~/Downloads 以下に保存される．
 ### 1列目のデータを行名としてデータを読み込む
-setwd("/cloud/project/")#作業ディレクトリの設定
+setwd("/cloud/project/")#作業ディレクトリの設定 ※Rstudioの人は setwd('~/prokenA')としてください．
 dataset <- read.csv("./animals.csv",row.names=1)
 
 ### datasetがどのようなものか確認
