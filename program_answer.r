@@ -41,7 +41,7 @@ DP <- function(string1,string2,S){
             #文字列１のi番目と文字列２のj番目とを比較した時の減点
             penalty <- S[string1[i-1],string2[j-1]]
 
-            C[i,j] <- min(C[i-1,j-1]+penalty,C[i-1,j]+gap,C[i,j-1]+gap
+            C[i,j] <- min(C[i-1,j-1]+penalty,C[i-1,j]+gap,C[i,j-1]+gap)
         }
     }
 
@@ -99,7 +99,7 @@ distmatrix <- function(Data,S){
 
 setwd("/cloud/project/practice")
 
-is_debug <- TRUE
+is_debug <- FALSE
 
 if(is_debug == TRUE){
     # デバッグで使うファイルを読み込む
